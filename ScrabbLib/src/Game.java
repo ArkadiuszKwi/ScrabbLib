@@ -75,16 +75,20 @@ public class Game
         return newBoard;
     }
     
+    private int calculateScore(Move move) {
+        return 0;
+    }
+    
     // Public
     
-    public void displayBoard() {
+    public void displayBoard() {\
+        
     }
     
     public void displayPlayersInfo() {
     }
     
-    public boolean makeMove(Move move)
-    {
+    public boolean makeMove(Move move) {
         return true;
     }
 }
