@@ -54,6 +54,15 @@ public class ScrabbLib
         }
     }
 
+    public int score(String word)
+    {
+        int total = 0;
+        for (char c : word.toCharArray())
+            total += this.language.equals("EN") ?
+                this.engValues.get(c) : this.plValues.get(c);
+        return total;
+    }
+
     public List<String> generateWords(String letters)
     {
         return generateWords(letters, sortMode.Score);
