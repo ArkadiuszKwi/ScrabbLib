@@ -76,5 +76,16 @@ public class Game
     }
     
     // Public
+    
+    public void displayBoard() {
+    }
+    
+    public void displayPlayersInfo() {
+    }
+    
+    public boolean makeMove(Move move)
+    {
+        return true;
+    }
 }
 
