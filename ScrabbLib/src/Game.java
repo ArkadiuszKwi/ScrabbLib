@@ -81,8 +81,13 @@ public class Game
     
     // Public
     
-    public void displayBoard() {\
-        
+    public void displayBoard() {
+        for (int i = 0; i < this.size; i++)
+        {
+            for (int j = 0; j < this.size; j++)
+                System.out.print(this.board[i][j]);
+            System.out.println();
+        }
     }
     
     public void displayPlayersInfo() {
