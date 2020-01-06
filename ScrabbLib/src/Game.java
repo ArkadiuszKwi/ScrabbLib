@@ -82,15 +82,10 @@ public class Game
     // Public
     
     public void displayBoard() {
-<<<<<<< HEAD
         System.out.println("  123456789012345");
         for (int i = 0; i < this.size; i++)
         {
             System.out.print((i + 1) % 10 + " ");
-=======
-        for (int i = 0; i < this.size; i++)
-        {
->>>>>>> 778219574e27e99953b93dc58a4c74e5a4de6606
             for (int j = 0; j < this.size; j++)
                 System.out.print(this.board[i][j]);
             System.out.println();
@@ -98,7 +93,6 @@ public class Game
     }
     
     public void displayPlayersInfo() {
-<<<<<<< HEAD
         for (int i = 0; i < this.playerInfo.size(); i++)
         {
             System.out.println("=========\nPlayer " + (i + 1) + ":");
@@ -127,11 +121,6 @@ public class Game
         this.playerInfo.set(this.turnForPlayer, new Player(rack, calculateScore(move)));
         this.history.add(move);
         this.turnForPlayer = this.turnForPlayer % getPlayersCount();
-=======
-    }
-    
-    public boolean makeMove(Move move) {
->>>>>>> 778219574e27e99953b93dc58a4c74e5a4de6606
         return true;
     }
 }
