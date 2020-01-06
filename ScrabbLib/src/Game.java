@@ -75,6 +75,53 @@ public class Game
         return newBoard;
     }
     
+    private int calculateScore(Move move) {
+        return 0;
+    }
+    
     // Public
+    
+    public void displayBoard() {
+        System.out.println("  123456789012345");
+        for (int i = 0; i < this.size; i++)
+        {
+            System.out.print((i + 1) % 10 + " ");
+            for (int j = 0; j < this.size; j++)
+                System.out.print(this.board[i][j]);
+            System.out.println();
+        }
+    }
+    
+    public void displayPlayersInfo() {
+        for (int i = 0; i < this.playerInfo.size(); i++)
+        {
+            System.out.println("=========\nPlayer " + (i + 1) + ":");
+            System.out.println("Rack: " + this.playerInfo.get(i).getRack());
+            System.out.println("Score: " + this.playerInfo.get(i).getScore());
+        }
+    }
+    
+    public boolean makeMove(Move move) {
+        String word = move.getWord();
+        List<Character> usedTiles = new ArrayList<>();
+        ArrayList<Position> positions = Position.getPositions(move);
+        for (int i = 0; i < positions.size(); i++)
+        {
+            int x = positions.get(i).getX(), y = positions.get(i).getY();
+            if (this.board[x][y] == '-') usedTiles.add(word.charAt(i));
+            this.board[x][y] = word.charAt(i);
+        }
+        String rack = this.playerInfo.get(this.turnForPlayer).getRack();
+        for (char c : usedTiles)
+        {
+            try { rack = Utils.removeAt(rack, rack.indexOf(c)); }
+            catch (Exception ex) {}
+        }
+        rack = takeTiles(rack);
+        this.playerInfo.set(this.turnForPlayer, new Player(rack, calculateScore(move)));
+        this.history.add(move);
+        this.turnForPlayer = this.turnForPlayer % getPlayersCount();
+        return true;
+    }
 }
 
