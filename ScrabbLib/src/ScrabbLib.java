@@ -56,7 +56,7 @@ public class ScrabbLib
 
     public List<String> generateWords(String letters)
     {
-        return generateWords(letters, ScrabbLib.sortMode.Score);
+        return generateWords(letters, sortMode.Score);
     }
     
     public List<String> generateWords(String letters, sortMode sort)
